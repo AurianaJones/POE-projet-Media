@@ -8,23 +8,12 @@ import javax.persistence.SequenceGenerator;
 
 public class Utilisateurs {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "taskSequenceGenerator")
-    @SequenceGenerator(name = "taskSequenceGenerator")
-	private Long Id;
 	@Column
 	private String email;
 	@Column
 	private String nom;
 	@Column
 	private String prenom;
-	
-	public Long getId() {
-		return Id;
-	}
-	public void setId(Long id) {
-		Id = id;
-	}
 	
 	public String getEmail() {
 		return email;

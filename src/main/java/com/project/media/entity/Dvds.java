@@ -16,11 +16,6 @@ import com.project.media.util.Dvd_Type;
 @Table(name = "dvds")
 public class Dvds extends Items {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "taskSequenceGenerator")
-    @SequenceGenerator(name = "taskSequenceGenerator")
-	private Long id;
-	
 	@Column (name = "réalisateur")
 	private String realisateur;
 	
@@ -29,14 +24,6 @@ public class Dvds extends Items {
 	
 	@Enumerated(EnumType.STRING)
 	private Dvd_Type type;
-	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getRealisateur() {
 		return realisateur;
