@@ -1,9 +1,10 @@
 package com.project.media.util;
 
-public class Dvd_Type {
+public enum Dvd_Type {
+	BLUE_RAY("BLUE_RAY"),
+	NORMAL("NORMAL");
 	
-	public enum DVDType {
-	    DVD, BLURAY
+	Dvd_Type(String string) {
+		// TODO Auto-generated constructor stub
 	}
-
 }
