@@ -13,6 +13,7 @@ public class Livres extends Items{
 	
 	@Column (name = "auteur")
 	private String auteur;
+	
 	@Column (name = "numero_ISBN")
 	private String isbnNum;
 

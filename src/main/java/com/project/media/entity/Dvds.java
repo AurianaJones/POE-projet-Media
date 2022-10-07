@@ -15,7 +15,7 @@ public class Dvds extends Items {
 	@Column (name = "realisateur")
 	private String realisateur;
 	
-	@Column (name = "durée")
+	@Column (name = "duree")
 	private double duree;
 	
 	@Column (name = "dvd_type")

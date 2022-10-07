@@ -14,8 +14,8 @@ public class Cds extends Items{
 	@Column (name = "artiste")
 	private String artiste;
 	
-	@Column (name = "durée")
-	private int duree;
+	@Column (name = "duree")
+	private double duree;
 	
 	@Column (name = "nombre_titres")
 	private int nb_titres;
@@ -30,7 +30,7 @@ public class Cds extends Items{
 	public double getDuree() {
 		return duree;
 	}
-	public void setDuree(int duree) {
+	public void setDuree(double duree) {
 		this.duree = duree;
 	}
 	
