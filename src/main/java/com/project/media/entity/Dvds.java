@@ -12,12 +12,13 @@ import com.project.media.util.Dvd_Type;
 @Table(name = "dvds")
 public class Dvds extends Items {
 	
-	@Column (name = "réalisateur")
+	@Column (name = "realisateur")
 	private String realisateur;
 	
 	@Column (name = "durée")
 	private double duree;
 	
+	@Column (name = "dvd_type")
 	@Enumerated(EnumType.STRING)
 	private Dvd_Type type;
 

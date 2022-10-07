@@ -18,7 +18,7 @@ import lombok.Data;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table (name ="objets")
-public class Items implements Serializable{
+public class Items {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
