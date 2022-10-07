@@ -21,10 +21,10 @@ public class Emprunts {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "date_d_emprunt")
+	@Column(name = "date_emprunt")
 	private LocalDate dateEmprunt;
 
-	@Column(name = "date_de_retour")
+	@Column(name = "date_retour")
 	private LocalDate dateRetour;
 
 	@ManyToOne

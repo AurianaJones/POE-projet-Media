@@ -26,7 +26,19 @@ INSERT INTO livres (id, auteur, numero_ISBN) VALUES (7,'Ronnie Anxious','123-4-5
 INSERT INTO livres (id, auteur, numero_ISBN) VALUES (8,'Barrabel Boubel','111-0-9876-5432-1');
 INSERT INTO livres (id, auteur, numero_ISBN) VALUES (9,'Rechine DeLonesh','111-2-1039-4857-6');
 
+INSERT INTO emprunts (date_emprunt, date_retour, utilisateur_id) VALUES ('2021-05-30', '2021-06-12', 1);
+INSERT INTO emprunts (date_emprunt, date_retour, utilisateur_id) VALUES ('2021-12-15', '2022-01-05', 3);
+INSERT INTO emprunts (date_emprunt, date_retour, utilisateur_id) VALUES ('2022-09-05', '2022-09-30', 2);
 
+INSERT INTO objets_emprunter (quantite_emprunter, emprunt_id, objet_id) VALUES(1, 2, 4);
+INSERT INTO objets_emprunter (quantite_emprunter, emprunt_id, objet_id) VALUES(2, 2, 1);
+INSERT INTO objets_emprunter (quantite_emprunter, emprunt_id, objet_id) VALUES(1, 2, 6);
+
+INSERT INTO objets_emprunter (quantite_emprunter, emprunt_id, objet_id) VALUES(1, 3, 2);
+INSERT INTO objets_emprunter (quantite_emprunter, emprunt_id, objet_id) VALUES(1, 3, 9);
+INSERT INTO objets_emprunter (quantite_emprunter, emprunt_id, objet_id) VALUES(1, 3, 7);
+
+INSERT INTO objets_emprunter (quantite_emprunter, emprunt_id, objet_id) VALUES(4, 1, 6);
 
 
 
