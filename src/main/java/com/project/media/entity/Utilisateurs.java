@@ -18,6 +18,7 @@ public class Utilisateurs {
 	private Long id;
 	@Column
 	private String email;
+	
 	@Column
 	private String nom;
 	@Column

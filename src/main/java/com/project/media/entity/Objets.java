@@ -1,6 +1,5 @@
 package com.project.media.entity;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -18,7 +17,7 @@ import lombok.Data;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table (name ="objets")
-public class Items {
+public class Objets {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +28,7 @@ public class Items {
 	private int quantite;
 	@Column (name = "date_parution")
 	private LocalDate date_parution;
+	
 	
 	public String getTitre() {
 		return titre;

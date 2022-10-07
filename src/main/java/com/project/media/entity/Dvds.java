@@ -10,7 +10,7 @@ import com.project.media.util.Dvd_Type;
 
 @Entity
 @Table(name = "dvds")
-public class Dvds extends Items {
+public class Dvds extends Objets {
 	
 	@Column (name = "realisateur")
 	private String realisateur;
