@@ -1,5 +1,6 @@
 package com.project.media.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -7,22 +8,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import lombok.Data;
+
+@Data
 @Entity
-@Table (name ="Objets")
-public class Items {
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table (name ="objets")
+public class Items implements Serializable{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "taskSequenceGenerator")
-    @SequenceGenerator(name = "taskSequenceGenerator")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column (name ="titre")
 	private String titre;
-	@Column (name = "quantite")
+	@Column (name = "quantite", nullable = false)
 	private int quantite;
-	@Column
+	@Column (name = "date_parution")
 	private LocalDate date_parution;
 	
 	public String getTitre() {
