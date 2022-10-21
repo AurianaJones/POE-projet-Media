@@ -4,12 +4,15 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+
+import com.project.media.util.Objet_Type;
 
 import lombok.Data;
 
@@ -28,4 +31,8 @@ public class Objets {
 	private int quantite;
 	@Column (name = "date_parution")
 	private LocalDate date_parution;
+	
+	@Column (name="type_d_objet")
+	@Enumerated
+	private Objet_Type type;
 }
