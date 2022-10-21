@@ -1,4 +1,6 @@
-package com.project.media.test.repository;
+package com.project.media;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
@@ -16,10 +18,9 @@ public class ObjetRepositoryTest {
 	private ObjetsRepository objetRepository;
 	
 	@Test
-	public 
-	List<Objets> findAllByQuantiteTest(){
-		List<Objets> result = objetRepository.findAllByDisponible(true);
-		return result;
+	public void findAllByDisponible(){
+		List<Objets> objets = objetRepository.findAllByDisponible(true);
+		assertEquals(5, objets.size());
 	}
 
 }
