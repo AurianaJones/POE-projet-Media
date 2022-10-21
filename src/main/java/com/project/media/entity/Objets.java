@@ -27,6 +27,6 @@ public class Objets {
 	@Column (name = "quantite", nullable = false)
 	private int quantite;
 	@Column (name = "date_parution")
-	private LocalDate date_parution;
+	private LocalDate date;
 	
 }
