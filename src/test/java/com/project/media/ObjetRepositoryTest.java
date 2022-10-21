@@ -18,9 +18,9 @@ public class ObjetRepositoryTest {
 	private ObjetsRepository objetRepository;
 	
 	@Test
-	public void findAllByDisponible(){
-		List<Objets> objets = objetRepository.findAllByDisponible(true);
-		assertEquals(5, objets.size());
+	public void findAllObjetDisponibleTest(){
+		List<Objets> objets = objetRepository.findAllObjetDisponible();
+		assertEquals(8, objets.size());
 	}
 
 }
