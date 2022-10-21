@@ -29,13 +29,24 @@ public class Objets {
 	@Column (name = "date_parution")
 	private LocalDate date;
 	
-	/*
-	 * private Boolean disponible;
-	 * 
-	 * public Boolean getDisponible() { return disponible; }
-	 * 
-	 * public void setDisponible(Boolean disponible) { this.disponible = disponible;
-	 * }
-	 */
+	public String getTitre() {
+		return titre;
+	}
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+	public int getQuantite() {
+		return quantite;
+	}
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
+	}
+	public LocalDate getDate() {
+		return date;
+	}
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+	
 	
 }

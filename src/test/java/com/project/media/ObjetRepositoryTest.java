@@ -22,5 +22,13 @@ public class ObjetRepositoryTest {
 		List<Objets> objets = objetRepository.findAllObjetDisponible();
 		assertEquals(8, objets.size());
 	}
+	
+	@Test
+	public void findAllOrderByDateTest() {
+		List<Objets> objets = objetRepository.findAllOrderByDate();
+		assertEquals("livre3",objets.get(0).getTitre());
+	}
+	
+
 
 }

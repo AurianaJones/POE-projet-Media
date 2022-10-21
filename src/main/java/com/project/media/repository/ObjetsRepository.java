@@ -1,6 +1,5 @@
 package com.project.media.repository;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,7 +17,8 @@ public interface ObjetsRepository extends JpaRepository<Objets, Long> {
 	@Query ("SELECT o FROM Objets o WHERE o.quantite !=0")
 	List<Objets> findAllObjetDisponible();
 	
-	List<Objets> findAllByDate (LocalDate date_parution);
+	@Query("SELECT o FROM Objets o ORDER BY date_parution DESC")
+	List<Objets> findAllOrderByDate ();
 	
 	//Trouver les objet par type 
 	List<Cds> findAllCdById(int id);
