@@ -28,27 +28,4 @@ public class Objets {
 	private int quantite;
 	@Column (name = "date_parution")
 	private LocalDate date_parution;
-	
-	
-	public String getTitre() {
-		return titre;
-	}
-	public void setTitre(String titre) {
-		this.titre = titre;
-	}
-	
-	public int getQuantite() {
-		return quantite;
-	}
-	public void setQuantite(int quantite) {
-		this.quantite = quantite;
-	}
-	
-	public LocalDate getDate_parution() {
-		return date_parution;
-	}
-	public void setDate_parution(LocalDate date_parution) {
-		this.date_parution = date_parution;
-	}
-
 }
