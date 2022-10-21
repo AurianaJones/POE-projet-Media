@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import com.project.media.entity.Cds;
-import com.project.media.entity.Dvds;
-import com.project.media.entity.Livres;
+//import com.project.media.entity.Dvds;
+//import com.project.media.entity.Livres;
 import com.project.media.entity.Objets;
 import com.project.media.repository.ObjetsRepository;
 

@@ -11,8 +11,6 @@ import com.project.media.entity.Livres;
 import com.project.media.entity.Objets;
 
 public interface ObjetsRepository extends JpaRepository<Objets, Long> {
-	
-	//List<Objets> findAllByDisponible(Boolean bool);
 
 	@Query ("SELECT o FROM Objets o WHERE o.quantite !=0")
 	List<Objets> findAllObjetDisponible();
@@ -22,8 +20,10 @@ public interface ObjetsRepository extends JpaRepository<Objets, Long> {
 	
 	@Query("SELECT o FROM Objets o JOIN Cds c ON o.id = c.id")
 	List<Cds> findAllCds();
+	
 	@Query("SELECT o FROM Objets o JOIN Dvds d ON o.id = d.id")
 	List<Dvds> findAllDvds();
+	
 	@Query("SELECT o FROM Objets o JOIN Livres l ON o.id = l.id")
 	List<Livres> findAllLivres();
 }
