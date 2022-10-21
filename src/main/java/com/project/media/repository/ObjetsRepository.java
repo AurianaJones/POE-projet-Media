@@ -20,8 +20,10 @@ public interface ObjetsRepository extends JpaRepository<Objets, Long> {
 	@Query("SELECT o FROM Objets o ORDER BY date_parution DESC")
 	List<Objets> findAllOrderByDate ();
 	
-	//Trouver les objet par type 
-	List<Cds> findAllCdById(int id);
-	List<Dvds> findAllDvdById(int id);
-	List<Livres> findAllLivreById(int id);
+	@Query("SELECT o FROM Objets o JOIN Cds c ON o.id = c.id")
+	List<Cds> findAllCds();
+	@Query("SELECT o FROM Objets o JOIN Dvds d ON o.id = d.id")
+	List<Dvds> findAllDvds();
+	@Query("SELECT o FROM Objets o JOIN Livres l ON o.id = l.id")
+	List<Livres> findAllLivres();
 }
