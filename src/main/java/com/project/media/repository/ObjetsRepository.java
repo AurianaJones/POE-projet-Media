@@ -11,7 +11,8 @@ import com.project.media.entity.Livres;
 import com.project.media.entity.Objets;
 
 public interface ObjetsRepository extends JpaRepository<Objets, Long> {
-	List<Objets> findAllByQuantite(int quantite);
+	
+	List<Objets> findAllByDisponible(Boolean bool);
 	List<Objets> findAllByDate (LocalDate date_parution);
 	
 	//Trouver les objet par type 

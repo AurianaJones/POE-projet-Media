@@ -29,4 +29,6 @@ public class Objets {
 	@Column (name = "date_parution")
 	private LocalDate date;
 	
+	private Boolean disponible;
+	
 }
