@@ -22,4 +22,28 @@ public class Dvds extends Objets {
 	@Enumerated(EnumType.STRING)
 	private Dvd_Type type;
 
+	public String getRealisateur() {
+		return realisateur;
+	}
+
+	public void setRealisateur(String realisateur) {
+		this.realisateur = realisateur;
+	}
+
+	public double getDuree() {
+		return duree;
+	}
+
+	public void setDuree(double duree) {
+		this.duree = duree;
+	}
+
+	public Dvd_Type getType() {
+		return type;
+	}
+
+	public void setType(Dvd_Type type) {
+		this.type = type;
+	}
+
 }

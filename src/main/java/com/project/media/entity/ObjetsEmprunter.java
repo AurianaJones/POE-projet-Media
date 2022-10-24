@@ -27,4 +27,30 @@ public class ObjetsEmprunter {
 	
 	@Column (name = "quantite_emprunter")
 	private int qte;
+
+	public Emprunts getEmprunt() {
+		return emprunt;
+	}
+
+	public void setEmprunt(Emprunts emprunt) {
+		this.emprunt = emprunt;
+	}
+
+	public Objets getObjet() {
+		return objet;
+	}
+
+	public void setObjet(Objets objet) {
+		this.objet = objet;
+	}
+
+	public int getQte() {
+		return qte;
+	}
+
+	public void setQte(int qte) {
+		this.qte = qte;
+	}
+	
+	
 }

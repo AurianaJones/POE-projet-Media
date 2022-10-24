@@ -22,10 +22,13 @@ public class Objets {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@Column (name ="titre")
 	private String titre;
+	
 	@Column (name = "quantite", nullable = false)
 	private int quantite;
+	
 	@Column (name = "date_parution")
 	private LocalDate date;
 	

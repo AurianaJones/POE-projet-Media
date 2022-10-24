@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import com.project.media.entity.Cds;
 import com.project.media.entity.Dvds;
 import com.project.media.entity.Livres;
 import com.project.media.entity.Objets;
-
+@Repository
 public interface ObjetsRepository extends JpaRepository<Objets, Long> {
 
 	@Query ("SELECT o FROM Objets o WHERE o.quantite !=0")

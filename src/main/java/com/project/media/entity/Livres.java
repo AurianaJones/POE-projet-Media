@@ -17,4 +17,22 @@ public class Livres extends Objets{
 	@Column (name = "numero_ISBN")
 	private String isbnNum;
 
+	public String getAuteur() {
+		return auteur;
+	}
+
+	public void setAuteur(String auteur) {
+		this.auteur = auteur;
+	}
+
+	public String getIsbnNum() {
+		return isbnNum;
+	}
+
+	public void setIsbnNum(String isbnNum) {
+		this.isbnNum = isbnNum;
+	}
+	
+	
+
 }
