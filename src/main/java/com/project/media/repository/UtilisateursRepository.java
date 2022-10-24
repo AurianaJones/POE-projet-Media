@@ -15,6 +15,9 @@ public interface UtilisateursRepository extends JpaRepository<Utilisateurs, Long
 	
 	Optional<Utilisateurs> findByEmail(String email);
 	
-	void deleteByEmail(String email);
+	long deleteByEmail(String email);
+	
+	//Suprimer les emprunts lié a un Utilisateurs supprimer
+	
 
 }
