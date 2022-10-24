@@ -25,8 +25,9 @@ public class ObjetsEmprunter {
 	@ManyToOne
 	private Objets objet;
 	
-	@Column (name = "quantite_emprunter")
-	private int qte;
+	/*
+	 * @Column (name = "quantite_emprunter") private int qte;
+	 */
 
 	public Emprunts getEmprunt() {
 		return emprunt;
@@ -44,13 +45,10 @@ public class ObjetsEmprunter {
 		this.objet = objet;
 	}
 
-	public int getQte() {
-		return qte;
-	}
-
-	public void setQte(int qte) {
-		this.qte = qte;
-	}
-	
+	/*
+	 * public int getQte() { return qte; }
+	 * 
+	 * public void setQte(int qte) { this.qte = qte; }
+	 */
 	
 }

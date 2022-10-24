@@ -30,14 +30,14 @@ INSERT INTO emprunts (date_emprunt, date_retour, utilisateur_id) VALUES ('2021-0
 INSERT INTO emprunts (date_emprunt, date_retour, utilisateur_id) VALUES ('2021-12-15', '2022-01-05', 3);
 INSERT INTO emprunts (date_emprunt, date_retour, utilisateur_id) VALUES ('2022-09-05', '2022-09-30', 2);
 
-INSERT INTO objets_emprunter (quantite_emprunter, emprunt_id, objet_id) VALUES(1, 2, 4);
-INSERT INTO objets_emprunter (quantite_emprunter, emprunt_id, objet_id) VALUES(2, 2, 1);
-INSERT INTO objets_emprunter (quantite_emprunter, emprunt_id, objet_id) VALUES(1, 2, 6);
+INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(2, 4);
+INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(2, 1);
+INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(2, 6);
 
-INSERT INTO objets_emprunter (quantite_emprunter, emprunt_id, objet_id) VALUES(1, 3, 2);
-INSERT INTO objets_emprunter (quantite_emprunter, emprunt_id, objet_id) VALUES(1, 3, 9);
-INSERT INTO objets_emprunter (quantite_emprunter, emprunt_id, objet_id) VALUES(1, 3, 7);
-INSERT INTO objets_emprunter (quantite_emprunter, emprunt_id, objet_id) VALUES(4, 1, 6);
+INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(3, 2);
+INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(3, 9);
+INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(3, 7);
+INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(1, 6);
 
 
 

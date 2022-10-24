@@ -10,6 +10,7 @@ import com.project.media.entity.Cds;
 import com.project.media.entity.Dvds;
 import com.project.media.entity.Livres;
 import com.project.media.entity.Objets;
+
 @Repository
 public interface ObjetsRepository extends JpaRepository<Objets, Long> {
 

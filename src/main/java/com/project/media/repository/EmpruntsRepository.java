@@ -15,11 +15,10 @@ import com.project.media.entity.Utilisateurs;
 
 @Repository
 public interface EmpruntsRepository extends JpaRepository<Emprunts, Long>{
-	
-	
-	long deleteByUtilisateur(Utilisateurs u);
 
 	Optional<Emprunts> findByUtilisateur(Utilisateurs u);
+	
+	long deleteByUtilisateur(Utilisateurs u);
 
 	@Modifying(clearAutomatically = true)
 	@Query("UPDATE Emprunts e SET e.dateRetour = ?1 WHERE e.id = ?2")
