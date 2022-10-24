@@ -15,7 +15,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "emprunts")
-public class Emprunts {
+public class Borrow {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class Emprunts {
 	private LocalDate dateRetour;
 
 	@ManyToOne
-	private Utilisateurs utilisateur;
+	private User user;
 	
 	public Long getId() {
 		return id;
@@ -54,12 +54,12 @@ public class Emprunts {
 		this.dateRetour = dateRetour;
 	}
 
-	public Utilisateurs getUtilisateur() {
-		return utilisateur;
+	public User getUtilisateur() {
+		return user;
 	}
 
-	public void setUtilisateur(Utilisateurs utilisateur) {
-		this.utilisateur = utilisateur;
+	public void setUtilisateur(User utilisateur) {
+		this.user = utilisateur;
 	}
 	
 	

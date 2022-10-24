@@ -6,14 +6,14 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.project.media.entity.Utilisateurs;
+import com.project.media.entity.User;
 
 @Repository
-public interface UtilisateursRepository extends JpaRepository<Utilisateurs, Long>{
+public interface UserRepository extends JpaRepository<User, Long>{
 
-	List<Utilisateurs> findAll();
+	List<User> findAll();
 	
-	Optional<Utilisateurs> findByEmail(String email);
+	Optional<User> findByEmail(String email);
 	
 	long deleteByEmail(String email);
 

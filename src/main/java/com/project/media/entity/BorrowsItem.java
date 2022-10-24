@@ -1,6 +1,6 @@
 package com.project.media.entity;
 
-import javax.persistence.Column;
+//import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,35 +13,35 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "objets_emprunter")
-public class ObjetsEmprunter {
+public class BorrowsItem {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@ManyToOne
-	private Emprunts emprunt;
+	private Borrow emprunt;
 	
 	@ManyToOne
-	private Objets objet;
+	private Items objet;
 	
 	/*
 	 * @Column (name = "quantite_emprunter") private int qte;
 	 */
 
-	public Emprunts getEmprunt() {
+	public Borrow getEmprunt() {
 		return emprunt;
 	}
 
-	public void setEmprunt(Emprunts emprunt) {
+	public void setEmprunt(Borrow emprunt) {
 		this.emprunt = emprunt;
 	}
 
-	public Objets getObjet() {
+	public Items getObjet() {
 		return objet;
 	}
 
-	public void setObjet(Objets objet) {
+	public void setObjet(Items objet) {
 		this.objet = objet;
 	}
 

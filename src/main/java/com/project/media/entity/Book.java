@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "livres")
-public class Livres extends Objets{
+public class Book extends Items{
 	
 	@Column (name = "auteur")
 	private String auteur;

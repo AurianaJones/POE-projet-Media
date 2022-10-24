@@ -8,33 +8,33 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import com.project.media.entity.Cds;
+import com.project.media.entity.Cd;
 //import com.project.media.entity.Dvds;
 //import com.project.media.entity.Livres;
-import com.project.media.entity.Objets;
-import com.project.media.repository.ObjetsRepository;
+import com.project.media.entity.Items;
+import com.project.media.repository.ItemsRepository;
 
 @DataJpaTest
-public class ObjetRepositoryTest {
+public class ItemsRepositoryTest {
 	
 	@Autowired
-	private ObjetsRepository objetRepository;
+	private ItemsRepository ItemRepository;
 	
 	@Test
 	public void findAllObjetDisponibleTest(){
-		List<Objets> objets = objetRepository.findAllObjetDisponible();
+		List<Items> objets = ItemRepository.findAllAvailbleItem();
 		assertEquals(8, objets.size());
 	}
 	
 	@Test
 	public void findAllOrderByDateTest() {
-		List<Objets> objets = objetRepository.findAllOrderByDate();
+		List<Items> objets = ItemRepository.findAllOrderByDate();
 		assertEquals("livre3",objets.get(0).getTitre());
 	}
 	
 	@Test
 	public void findAllCdsTest() {
-		List<Cds> cds = objetRepository.findAllCds();
+		List<Cd> cds = ItemRepository.findAllCd();
 		assertEquals(3, cds.size());
 	}
 	/*

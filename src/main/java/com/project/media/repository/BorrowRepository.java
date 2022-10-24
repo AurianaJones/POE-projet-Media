@@ -10,17 +10,17 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.project.media.entity.Emprunts;
-import com.project.media.entity.Utilisateurs;
+import com.project.media.entity.Borrow;
+import com.project.media.entity.User;
 
 @Repository
-public interface EmpruntsRepository extends JpaRepository<Emprunts, Long>{
+public interface BorrowRepository extends JpaRepository<Borrow, Long>{
 
-	Optional<Emprunts> findByUtilisateur(Utilisateurs u);
+	Optional<Borrow> findByUser(User u);
 	
-	long deleteByUtilisateur(Utilisateurs u);
+	long deleteByUser(User u);
 
 	@Modifying(clearAutomatically = true)
-	@Query("UPDATE Emprunts e SET e.dateRetour = ?1 WHERE e.id = ?2")
+	@Query("UPDATE Borrow e SET e.dateRetour = ?1 WHERE e.id = ?2")
 	void updateDateRetour(@Param(value = "dateRetour") LocalDate dateRetour, @Param(value = "id") long id);
 }

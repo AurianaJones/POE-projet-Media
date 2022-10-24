@@ -6,6 +6,6 @@ import lombok.Data;
 
 @Data
 @Service
-public class ObjetsService {
+public class ItemService {
 
 }

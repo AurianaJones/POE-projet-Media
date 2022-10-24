@@ -17,7 +17,7 @@ import lombok.Data;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table (name ="objets")
-public class Objets {
+public class Items {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

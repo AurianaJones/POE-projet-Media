@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "utilisateurs")
-public class Utilisateurs {
+public class User {
 	
 	@Id@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -50,11 +50,11 @@ public class Utilisateurs {
 		this.prenom = prenom;
 	}
 
-	public Utilisateurs() {
+	public User() {
 		super();
 	}
 
-	public Utilisateurs(String email, String nom, String prenom) {
+	public User(String email, String nom, String prenom) {
 		super();
 		this.email = email;
 		this.nom = nom;

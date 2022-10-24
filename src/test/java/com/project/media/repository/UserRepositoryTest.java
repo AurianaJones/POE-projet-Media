@@ -11,35 +11,35 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import com.project.media.entity.Utilisateurs;
+import com.project.media.entity.User;
 
 @DataJpaTest
-public class UtilisateursRepositoryTest {
+public class UserRepositoryTest {
 	
 	@Autowired
-	private UtilisateursRepository utilisateursRepository;
+	private UserRepository utilisateursRepository;
 	
 	@Test
 	public void findAllTest() {
-		List<Utilisateurs> u = utilisateursRepository.findAll();
+		List<User> u = utilisateursRepository.findAll();
 		assertEquals(3, u.size());
 	}
 	
 	@Test
 	public void findByEmailTest() {
-		Optional<Utilisateurs> u = utilisateursRepository.findByEmail("arrow@post.tom");
+		Optional<User> u = utilisateursRepository.findByEmail("arrow@post.tom");
 		assertEquals(u.get().getNom(), "post");
 	}
 	
 	@Test
 	public void DeleteByEmailTest() {
-		Utilisateurs u = new Utilisateurs();
+		User u = new User();
 		u.setEmail("blaha@blue.com");
 		u.setNom("Baba");
 		u.setPrenom("Yage");
 		utilisateursRepository.save(u);
 		utilisateursRepository.deleteByEmail(u.getEmail());
-		Optional<Utilisateurs> uSearch = utilisateursRepository.findByEmail(u.getEmail());
+		Optional<User> uSearch = utilisateursRepository.findByEmail(u.getEmail());
 		assertNotEquals(u, uSearch);
 	}
 
