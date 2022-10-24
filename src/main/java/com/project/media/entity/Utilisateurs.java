@@ -49,5 +49,16 @@ public class Utilisateurs {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+
+	public Utilisateurs() {
+		super();
+	}
+
+	public Utilisateurs(String email, String nom, String prenom) {
+		super();
+		this.email = email;
+		this.nom = nom;
+		this.prenom = prenom;
+	}
 	
 }

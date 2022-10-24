@@ -1,7 +1,9 @@
 package com.project.media.repository;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -22,12 +24,8 @@ public class EmpruntsRepositoryTest {
 	@Test
 	public void deleteByUtilisateurTest() {
 		//Création d'un utilisateur temporaire
-		Utilisateurs u = new Utilisateurs();
-		u.setEmail("blaha@blue.com");
-		u.setNom("Baba");
-		u.setPrenom("Yage");
+		Utilisateurs u = new Utilisateurs("blaha@blue.com", "Baba", "Yage");
 		utilisateursRepository.save(u);
-		
 		//Création d'un emprunt à suprimer
 		Emprunts e = new Emprunts();
 		e.setUtilisateur(u);
@@ -37,6 +35,19 @@ public class EmpruntsRepositoryTest {
 		//Verification
 		Optional<Emprunts> eSearch = empruntRepository.findByUtilisateur(u);
 		assertNotEquals(e, eSearch);
+	}
+	
+	@Test
+	public void updateDateRetourTest() {
+		Utilisateurs u = new Utilisateurs("jajaj@oip.fr", "Ja", "Jaye");
+		utilisateursRepository.save(u);
+		Emprunts e = new Emprunts();
+		e.setDateEmprunt(LocalDate.of(2020, 1, 8));
+		e.setUtilisateur(u);
+		empruntRepository.save(e);
+		empruntRepository.updateDateRetour(LocalDate.of(2020, 1, 14), e.getId());
+		Optional<Emprunts> eSearch = empruntRepository.findByUtilisateur(u);
+		assertEquals(LocalDate.of(2020, 1, 14), eSearch.get().getDateRetour());
 	}
 
 }

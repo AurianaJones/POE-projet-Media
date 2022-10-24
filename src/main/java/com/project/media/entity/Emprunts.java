@@ -29,6 +29,14 @@ public class Emprunts {
 
 	@ManyToOne
 	private Utilisateurs utilisateur;
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public LocalDate getDateEmprunt() {
 		return dateEmprunt;
