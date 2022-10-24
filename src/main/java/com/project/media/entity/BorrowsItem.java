@@ -1,5 +1,6 @@
 package com.project.media.entity;
 
+import javax.persistence.CascadeType;
 //import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,10 +20,10 @@ public class BorrowsItem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Borrow emprunt;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Items objet;
 	
 	/*

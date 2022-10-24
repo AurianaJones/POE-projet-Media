@@ -31,9 +31,9 @@ public class BorrowRepositoryTest {
 		e.setUtilisateur(u);
 		empruntRepository.save(e);
 		//supression de l'emprunt
-		empruntRepository.deleteByUser(u);
+		empruntRepository.deleteByUtilisateur(u);
 		//Verification
-		Optional<Borrow> eSearch = empruntRepository.findByUser(u);
+		Optional<Borrow> eSearch = empruntRepository.findByUtilisateur(u);
 		assertNotEquals(e, eSearch);
 	}
 	
@@ -46,7 +46,7 @@ public class BorrowRepositoryTest {
 		e.setUtilisateur(u);
 		empruntRepository.save(e);
 		empruntRepository.updateDateRetour(LocalDate.of(2020, 1, 14), e.getId());
-		Optional<Borrow> eSearch = empruntRepository.findByUser(u);
+		Optional<Borrow> eSearch = empruntRepository.findByUtilisateur(u);
 		assertEquals(LocalDate.of(2020, 1, 14), eSearch.get().getDateRetour());
 	}
 

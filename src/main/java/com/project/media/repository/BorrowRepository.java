@@ -16,9 +16,9 @@ import com.project.media.entity.User;
 @Repository
 public interface BorrowRepository extends JpaRepository<Borrow, Long>{
 
-	Optional<Borrow> findByUser(User u);
+	Optional<Borrow> findByUtilisateur(User u);
 	
-	long deleteByUser(User u);
+	long deleteByUtilisateur(User u);
 
 	@Modifying(clearAutomatically = true)
 	@Query("UPDATE Borrow e SET e.dateRetour = ?1 WHERE e.id = ?2")

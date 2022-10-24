@@ -34,7 +34,7 @@ INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(2, 4);
 INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(2, 1);
 INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(2, 6);
 
-INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(3, 2);
+INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(3, 8);
 INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(3, 9);
 INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(3, 7);
 INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(1, 6);

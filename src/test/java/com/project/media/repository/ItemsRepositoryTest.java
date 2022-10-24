@@ -2,6 +2,7 @@ package com.project.media.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -16,27 +17,39 @@ import com.project.media.repository.ItemsRepository;
 
 @DataJpaTest
 public class ItemsRepositoryTest {
-	
+
 	@Autowired
-	private ItemsRepository ItemRepository;
-	
+	private ItemsRepository itemRepository;
+
 	@Test
-	public void findAllObjetDisponibleTest(){
-		List<Items> objets = ItemRepository.findAllAvailbleItem();
+	public void findAllObjetDisponibleTest() {
+		List<Items> objets = itemRepository.findAllAvailbleItem();
 		assertEquals(8, objets.size());
 	}
-	
+
 	@Test
 	public void findAllOrderByDateTest() {
-		List<Items> objets = ItemRepository.findAllOrderByDate();
-		assertEquals("livre3",objets.get(0).getTitre());
+		List<Items> objets = itemRepository.findAllOrderByDate();
+		assertEquals("livre3", objets.get(0).getTitre());
 	}
-	
+
 	@Test
 	public void findAllCdsTest() {
-		List<Cd> cds = ItemRepository.findAllCd();
+		List<Cd> cds = itemRepository.findAllCd();
 		assertEquals(3, cds.size());
 	}
+
+	@Test
+	public void updateQuantiteTest() {
+		Items i = new Items();
+		i.setTitre("Bloup");
+		i.setDate(LocalDate.of(2020, 12, 01));
+		i.setQuantite(2);
+		itemRepository.save(i);
+		itemRepository.updateQuantite(i.getQuantite() + 1, i.getId());
+		assertEquals(3, itemRepository.findById(i.getId()));
+	}
+
 	/*
 	 * @Test public void findAllDvdsTest() { List<Dvds> dvds =
 	 * objetRepository.findAllDvds(); assertEquals(3, dvds.size()); }
@@ -44,5 +57,5 @@ public class ItemsRepositoryTest {
 	 * @Test public void findAllLivresTest() { List<Livres> livres =
 	 * objetRepository.findAllLivres(); assertEquals(3, livres.size()); }
 	 */
-	
+
 }

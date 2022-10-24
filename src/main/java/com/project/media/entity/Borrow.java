@@ -2,6 +2,7 @@ package com.project.media.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,8 +28,8 @@ public class Borrow {
 	@Column(name = "date_retour")
 	private LocalDate dateRetour;
 
-	@ManyToOne
-	private User user;
+	@ManyToOne (cascade = CascadeType.ALL)
+	private User utilisateur;
 	
 	public Long getId() {
 		return id;
@@ -55,11 +56,11 @@ public class Borrow {
 	}
 
 	public User getUtilisateur() {
-		return user;
+		return utilisateur;
 	}
 
 	public void setUtilisateur(User utilisateur) {
-		this.user = utilisateur;
+		this.utilisateur = utilisateur;
 	}
 	
 	
