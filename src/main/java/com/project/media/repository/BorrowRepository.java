@@ -2,6 +2,7 @@ package com.project.media.repository;
 
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,6 +18,8 @@ import com.project.media.entity.User;
 public interface BorrowRepository extends JpaRepository<Borrow, Long>{
 
 	Optional<Borrow> findByUtilisateur(User u);
+	
+	List<Borrow>findAllByUtilisateur(User u);
 	
 	long deleteByUtilisateur(User u);
 

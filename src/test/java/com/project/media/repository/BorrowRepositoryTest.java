@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,17 @@ public class BorrowRepositoryTest {
 	
 	@Autowired
 	private UserRepository utilisateursRepository;
+	
+	@Test
+	public void findAllByUtilisateurTest() {
+		User u = new User("uniko@circle.com", "Nkolo", "Scage");
+		utilisateursRepository.save(u);
+		Borrow e = new Borrow();
+		e.setUtilisateur(u);
+		empruntRepository.save(e);
+		List<Borrow> listEmprunt =  empruntRepository.findAllByUtilisateur(u);
+		assertEquals(1, listEmprunt.size());
+	}
 	
 	@Test
 	public void deleteByUserTest() {
