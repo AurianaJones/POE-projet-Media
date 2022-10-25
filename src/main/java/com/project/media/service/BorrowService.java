@@ -1,6 +1,7 @@
 package com.project.media.service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -25,16 +26,16 @@ public class BorrowService {
 	@Autowired
 	private BorrowsItemRepository borrowItemsRepository;
 
-	public Borrow borrowItems(User u, List<Items> listItems) {
+	public List<BorrowsItem> borrowItems(User u, List<Items> listItems) {
 		// Récupération des emprunts déjà effectuer
 		List<Borrow> alreadyBorrow = borrowRepository.findAllByUtilisateur(u);
 		// Verification que l'utilisateur a moins de 3 emprunts
 		if (alreadyBorrow.size() >= 3) {
 			return null;
 		}
-		List<Borrow> actualBorrows = null;
+		List<Borrow> actualBorrows = new ArrayList<>();
 		actualBorrows.addAll(alreadyBorrow);
-		List<Borrow> newBorrow = null;
+		List<Borrow> newBorrow = new ArrayList<>();
 		
 		// Création des nouveaux emprunts qu'on ajoute au emprunt actif
 		for (int i = 0; i < listItems.size(); i++) {
@@ -52,15 +53,17 @@ public class BorrowService {
 			return null;
 		} else { //Sauvegarder les emprunts dans la base
 			int i = 0;
+			List<BorrowsItem> borrowedItems = new ArrayList<>();
 			for (Borrow borrow : newBorrow) {
 				borrowRepository.save(borrow);
 				BorrowsItem bi = new BorrowsItem();
 				bi.setEmprunt(borrow);
 				bi.setObjet(listItems.get(i));
 				borrowItemsRepository.save(bi);
+				borrowedItems.add(bi);
 				i++;
 			}
-			return null;
+			return borrowedItems;
 		}
 	}
 }
