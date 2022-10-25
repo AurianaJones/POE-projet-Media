@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Data
@@ -29,6 +31,7 @@ public class Borrow {
 	private LocalDate dateRetour;
 
 	@ManyToOne //(cascade = CascadeType.ALL)
+	@JsonIgnore
 	private User utilisateur;
 	
 	public Long getId() {
