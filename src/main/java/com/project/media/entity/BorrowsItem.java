@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Data
@@ -21,9 +23,11 @@ public class BorrowsItem {
 	private Long id;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
+	//@JsonIgnore si pb de boucle infini
 	private Borrow emprunt;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
+	//@JsonIgnore //si pb de boucle infini
 	private Items objet;
 	
 	/*
