@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,8 +47,10 @@ public class ItemsRepositoryTest {
 		i.setDate(LocalDate.of(2020, 12, 01));
 		i.setQuantite(2);
 		itemRepository.save(i);
-		itemRepository.updateQuantite(i.getQuantite() + 1, i.getId());
-		assertEquals(3, itemRepository.findById(i.getId()));
+		int n = i.getQuantite() - 1;
+		itemRepository.updateQuantite(n, i.getId());
+		Optional<Items> search = itemRepository.findById(i.getId());
+		assertEquals(1, search.get().getQuantite());
 	}
 
 	/*

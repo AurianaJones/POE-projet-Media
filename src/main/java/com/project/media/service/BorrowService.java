@@ -11,13 +11,13 @@ import com.project.media.repository.BorrowRepository;
 @Service
 @Transactional
 public class BorrowService {
-	/*
-	 * @Autowired private BorrowRepository borrowRepository;
-	 * 
-	 * public Borrow borrowAnItem(Long userId) {
-	 * 
-	 * 
-	 * return null; }
-	 */
+	
+	  @Autowired private BorrowRepository borrowRepository;
+	  
+	  public Borrow borrowAnItem(Long userId) {
+	  
+	  
+	  return null; }
+	 
 
 }
