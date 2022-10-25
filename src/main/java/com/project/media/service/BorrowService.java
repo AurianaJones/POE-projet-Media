@@ -15,6 +15,7 @@ import com.project.media.entity.Items;
 import com.project.media.entity.User;
 import com.project.media.repository.BorrowRepository;
 import com.project.media.repository.BorrowsItemRepository;
+import com.project.media.repository.ItemsRepository;
 import com.project.media.service.exception.EmptyBorrowException;
 import com.project.media.service.exception.MaxBorrowException;
 
@@ -27,18 +28,25 @@ public class BorrowService {
 	
 	@Autowired
 	private BorrowsItemRepository borrowItemsRepository;
+	
+	@Autowired
+	private ItemsRepository itemsRepository;
 
 	public List<BorrowsItem> borrowItems(User u, List<Items> listItems) throws MaxBorrowException, EmptyBorrowException {
 		// Récupération des emprunts déjà effectuer
 		List<Borrow> alreadyBorrow = borrowRepository.findAllByUtilisateur(u);
 		// Verification que l'utilisateur a moins de 3 emprunts
-		if (alreadyBorrow.size() >= 3) {
+		List<Borrow> actualBorrows = new ArrayList<>();
+		for(Borrow b : alreadyBorrow) {
+			if (b.getDateRetour() == null) {
+				actualBorrows.add(b);
+			}
+		}
+		if (actualBorrows.size() >= 3) {
 			throw new MaxBorrowException("Cette utilisateur à déjà :" + alreadyBorrow.size());
 		}
-		List<Borrow> actualBorrows = new ArrayList<>();
-		actualBorrows.addAll(alreadyBorrow);
-		List<Borrow> newBorrow = new ArrayList<>();
 		
+		List<Borrow> newBorrow = new ArrayList<>();
 		// Création des nouveaux emprunts qu'on ajoute au emprunt actif
 		for (int i = 0; i < listItems.size(); i++) {
 			Borrow b = new Borrow();
@@ -60,7 +68,10 @@ public class BorrowService {
 				borrowRepository.save(borrow);
 				BorrowsItem bi = new BorrowsItem();
 				bi.setEmprunt(borrow);
-				bi.setObjet(listItems.get(i));
+				Items o = listItems.get(i);
+				bi.setObjet(o);
+				Items objDB = itemsRepository.findByTitre(o.getTitre());
+				itemsRepository.updateQuantite(objDB.getQuantite()-1, objDB.getId());
 				borrowItemsRepository.save(bi);
 				borrowedItems.add(bi);
 				i++;

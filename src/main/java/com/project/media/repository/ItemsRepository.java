@@ -15,6 +15,10 @@ import com.project.media.entity.Items;
 
 @Repository
 public interface ItemsRepository extends JpaRepository<Items, Long> {
+	
+	Items findByTitre(String titre);
+	
+	Items findById(long i);
 
 	@Query ("SELECT o FROM Items o WHERE o.quantite !=0")
 	List<Items> findAllAvailbleItem();
@@ -35,4 +39,5 @@ public interface ItemsRepository extends JpaRepository<Items, Long> {
 	@Query("UPDATE Items o SET o.quantite = ?1 WHERE o.id = ?2")
 	void updateQuantite(@Param(value = "quantite") int quantite, @Param(value = "id") long id);
 
+	
 }

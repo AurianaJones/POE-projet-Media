@@ -22,11 +22,11 @@ public class BorrowsItem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne //(cascade = CascadeType.ALL)
 	//@JsonIgnore si pb de boucle infini
 	private Borrow emprunt;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne //(cascade = CascadeType.ALL)
 	//@JsonIgnore //si pb de boucle infini
 	private Items objet;
 	

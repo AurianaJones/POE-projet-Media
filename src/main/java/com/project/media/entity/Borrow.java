@@ -28,7 +28,7 @@ public class Borrow {
 	@Column(name = "date_retour")
 	private LocalDate dateRetour;
 
-	@ManyToOne (cascade = CascadeType.ALL)
+	@ManyToOne //(cascade = CascadeType.ALL)
 	private User utilisateur;
 	
 	public Long getId() {

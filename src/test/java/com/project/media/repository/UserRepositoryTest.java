@@ -27,8 +27,8 @@ public class UserRepositoryTest {
 	
 	@Test
 	public void findByEmailTest() {
-		Optional<User> u = utilisateursRepository.findByEmail("arrow@post.tom");
-		assertEquals(u.get().getNom(), "post");
+		User u = utilisateursRepository.findByEmail("arrow@post.tom");
+		assertEquals(u.getNom(), "post");
 	}
 	
 	@Test
@@ -39,7 +39,7 @@ public class UserRepositoryTest {
 		u.setPrenom("Yage");
 		utilisateursRepository.save(u);
 		utilisateursRepository.deleteByEmail(u.getEmail());
-		Optional<User> uSearch = utilisateursRepository.findByEmail(u.getEmail());
+		User uSearch = utilisateursRepository.findByEmail(u.getEmail());
 		assertNotEquals(u, uSearch);
 	}
 
