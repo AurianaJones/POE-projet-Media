@@ -1,6 +1,6 @@
 package com.project.media.entity;
 
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType;
 //import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -34,8 +34,18 @@ public class BorrowsItem {
 	 * @Column (name = "quantite_emprunter") private int qte;
 	 */
 
+	
+	
 	public Borrow getEmprunt() {
 		return emprunt;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void setEmprunt(Borrow emprunt) {

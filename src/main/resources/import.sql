@@ -29,8 +29,6 @@ INSERT INTO livres (id, auteur, numero_ISBN) VALUES (9,'Rechine DeLonesh','111-2
 INSERT INTO emprunts (date_emprunt, date_retour, utilisateur_id) VALUES ('2021-05-30', '2021-06-12', 1);
 INSERT INTO emprunts (date_emprunt, date_retour, utilisateur_id) VALUES ('2021-12-15', '2022-01-05', 3);
 INSERT INTO emprunts (date_emprunt, date_retour, utilisateur_id) VALUES ('2022-09-05', '2022-09-30', 2);
-INSERT INTO emprunts (date_emprunt, date_retour, utilisateur_id) VALUES ('2022-09-05', '2022-09-30', 2);
-INSERT INTO emprunts (date_emprunt, date_retour, utilisateur_id) VALUES ('2022-09-05', '2022-09-30', 2);
 
 
 INSERT INTO objets_emprunter (emprunt_id, objet_id) VALUES(2, 4);

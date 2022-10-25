@@ -14,7 +14,6 @@ import com.project.media.entity.Cd;
 //import com.project.media.entity.Dvds;
 //import com.project.media.entity.Livres;
 import com.project.media.entity.Items;
-import com.project.media.repository.ItemsRepository;
 
 @DataJpaTest
 public class ItemsRepositoryTest {

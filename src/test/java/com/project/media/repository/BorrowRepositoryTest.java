@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +44,7 @@ public class BorrowRepositoryTest {
 		//supression de l'emprunt
 		empruntRepository.deleteByUtilisateur(u);
 		//Verification
-		Optional<Borrow> eSearch = empruntRepository.findByUtilisateur(u);
+		Borrow eSearch = empruntRepository.findByUtilisateur(u);
 		assertNotEquals(e, eSearch);
 	}
 	
@@ -58,8 +57,8 @@ public class BorrowRepositoryTest {
 		e.setUtilisateur(u);
 		empruntRepository.save(e);
 		empruntRepository.updateDateRetour(LocalDate.of(2020, 1, 14), e.getId());
-		Optional<Borrow> eSearch = empruntRepository.findByUtilisateur(u);
-		assertEquals(LocalDate.of(2020, 1, 14), eSearch.get().getDateRetour());
+		Borrow eSearch = empruntRepository.findByUtilisateur(u);
+		assertEquals(LocalDate.of(2020, 1, 14), eSearch.getDateRetour());
 	}
 
 }

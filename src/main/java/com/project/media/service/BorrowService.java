@@ -17,6 +17,7 @@ import com.project.media.repository.BorrowRepository;
 import com.project.media.repository.BorrowsItemRepository;
 import com.project.media.repository.ItemsRepository;
 import com.project.media.service.exception.EmptyBorrowException;
+import com.project.media.service.exception.EmptyItemsException;
 import com.project.media.service.exception.MaxBorrowException;
 
 @Service
@@ -33,8 +34,10 @@ public class BorrowService {
 	private ItemsRepository itemsRepository;
 
 	public List<BorrowsItem> borrowItems(User u, List<Items> listItems) throws MaxBorrowException, EmptyBorrowException {
+		
 		// Récupération des emprunts déjà effectuer
 		List<Borrow> alreadyBorrow = borrowRepository.findAllByUtilisateur(u);
+		
 		// Verification que l'utilisateur a moins de 3 emprunts
 		List<Borrow> actualBorrows = new ArrayList<>();
 		for(Borrow b : alreadyBorrow) {
@@ -45,7 +48,6 @@ public class BorrowService {
 		if (actualBorrows.size() >= 3) {
 			throw new MaxBorrowException("Cette utilisateur à déjà :" + alreadyBorrow.size());
 		}
-		
 		List<Borrow> newBorrow = new ArrayList<>();
 		// Création des nouveaux emprunts qu'on ajoute au emprunt actif
 		for (int i = 0; i < listItems.size(); i++) {
@@ -77,6 +79,23 @@ public class BorrowService {
 				i++;
 			}
 			return borrowedItems;
+		}
+	}
+	
+	public void returnBorrowItems(long borrow_id ) throws EmptyItemsException {
+		//On met a jour la date de retour de l'emprunt pour le conclure
+		borrowRepository.updateDateRetour(LocalDate.now(), borrow_id);
+		
+		//On récupére les objets emprunter pour remettre l'emprunt à sa place
+		List<BorrowsItem> ib = borrowItemsRepository.findAllByEmprunt_id(borrow_id);
+		for (BorrowsItem itemBorrowed : ib) {
+			Items i = itemsRepository.findById(itemBorrowed.getObjet().getId()).get();
+			if (i == null) {
+				throw new EmptyItemsException();
+			} else {
+				int i_quatite = i.getQuantite() + 1;
+				itemsRepository.updateQuantite(i_quatite, i.getId());
+			}
 		}
 	}
 }
