@@ -33,8 +33,7 @@ public class BorrowService {
 	@Autowired
 	private ItemsRepository itemsRepository;
 
-	public List<BorrowsItem> borrowItems(User u, List<Items> listItems) throws MaxBorrowException, EmptyBorrowException {
-		
+	public List<BorrowsItem> borrowItems(User u, List<Items> listItems) throws MaxBorrowException, EmptyBorrowException {		
 		// Récupération des emprunts déjà effectuer
 		List<Borrow> alreadyBorrow = borrowRepository.findAllByUtilisateur(u);
 		
