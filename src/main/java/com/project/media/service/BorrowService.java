@@ -15,6 +15,8 @@ import com.project.media.entity.Items;
 import com.project.media.entity.User;
 import com.project.media.repository.BorrowRepository;
 import com.project.media.repository.BorrowsItemRepository;
+import com.project.media.service.exception.EmptyBorrowException;
+import com.project.media.service.exception.MaxBorrowException;
 
 @Service
 @Transactional
@@ -26,12 +28,12 @@ public class BorrowService {
 	@Autowired
 	private BorrowsItemRepository borrowItemsRepository;
 
-	public List<BorrowsItem> borrowItems(User u, List<Items> listItems) {
+	public List<BorrowsItem> borrowItems(User u, List<Items> listItems) throws MaxBorrowException, EmptyBorrowException {
 		// Récupération des emprunts déjà effectuer
 		List<Borrow> alreadyBorrow = borrowRepository.findAllByUtilisateur(u);
 		// Verification que l'utilisateur a moins de 3 emprunts
 		if (alreadyBorrow.size() >= 3) {
-			return null;
+			throw new MaxBorrowException("Cette utilisateur à déjà :" + alreadyBorrow.size());
 		}
 		List<Borrow> actualBorrows = new ArrayList<>();
 		actualBorrows.addAll(alreadyBorrow);
@@ -47,10 +49,10 @@ public class BorrowService {
 		}
 		// Verification que l'emprunt est autorisé
 		if (actualBorrows.size() > 3) {
-			return null;
+			throw new MaxBorrowException("Emprunt actuel :" + actualBorrows.size());
 		}
 		if (actualBorrows.size() == 0) {
-			return null;
+			throw new EmptyBorrowException();
 		} else { //Sauvegarder les emprunts dans la base
 			int i = 0;
 			List<BorrowsItem> borrowedItems = new ArrayList<>();
