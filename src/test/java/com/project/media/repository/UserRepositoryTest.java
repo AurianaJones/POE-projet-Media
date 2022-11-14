@@ -25,8 +25,8 @@ public class UserRepositoryTest {
 	
 	@Test
 	public void findByEmailTest() {
-		User u = utilisateursRepository.findByEmail("arrow@post.tom");
-		assertEquals(u.getNom(), "post");
+		User u = utilisateursRepository.findByEmail("pinkarrow@dnd.alt");
+		assertEquals(u.getNom(), "Castle");
 	}
 	
 	@Test

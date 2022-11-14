@@ -26,6 +26,9 @@ public class User {
 	@Column
 	private String prenom;
 
+	//@Column
+	//private String password;
+
 	public String getEmail() {
 		return email;
 	}
@@ -49,6 +52,14 @@ public class User {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+
+	// public String getPassword(){
+	// 	return password;
+	// }
+
+	// public void setPassword(String pass){
+	// 	this.password = pass;
+	// }
 
 	public User() {
 		super();

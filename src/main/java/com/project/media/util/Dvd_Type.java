@@ -5,6 +5,5 @@ public enum Dvd_Type {
 	NORMAL("NORMAL");
 	
 	Dvd_Type(String string) {
-		// TODO Auto-generated constructor stub
 	}
 }

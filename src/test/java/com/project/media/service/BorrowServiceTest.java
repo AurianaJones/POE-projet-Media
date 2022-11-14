@@ -20,6 +20,8 @@ import com.project.media.repository.UserRepository;
 import com.project.media.service.exception.EmptyBorrowException;
 import com.project.media.service.exception.EmptyItemsException;
 import com.project.media.service.exception.MaxBorrowException;
+import com.project.media.service.exception.NoMatchException;
+import com.project.media.service.exception.OutOfStockException;
 
 @SpringBootTest
 public class BorrowServiceTest {
@@ -37,12 +39,12 @@ public class BorrowServiceTest {
 	private BorrowRepository borrowRepository;
 	
 	@Test
-	void borrowItemsTest() throws MaxBorrowException, EmptyBorrowException {
+	void borrowItemsTest() throws MaxBorrowException, EmptyBorrowException, OutOfStockException {
 		User u = new User("bloah@go.gt", "Ah", "Bloah");
 		userRepository.save(u);
 		List<Items> newItemsToBorrow = new ArrayList<>();
 		Items item1 = itemRepository.findById((long)1);
-		Items item2 = itemRepository.findById((long)2);
+		Items item2 = itemRepository.findById((long)3);
 		newItemsToBorrow.add(item1);
 		newItemsToBorrow.add(item2);
 		List<BorrowsItem> borrowe = borrowService.borrowItems(u, newItemsToBorrow);
@@ -50,17 +52,18 @@ public class BorrowServiceTest {
 	}
 	
 	@Test
-	void returnBorrowItemsTest() throws MaxBorrowException, EmptyBorrowException, EmptyItemsException {
-		User u = userRepository.findByEmail("borrow@book.lom");
+	void returnBorrowItemsTest() throws MaxBorrowException, EmptyBorrowException, EmptyItemsException, NoMatchException, OutOfStockException {
+		User u = userRepository.findByEmail("pinkarrow@dnd.alt");
 		List<Items> newItemsToBorrow = new ArrayList<>();
 		Items item1 = itemRepository.findById((long)1);
-		Items item2 = itemRepository.findById((long)2);
+		Items item2 = itemRepository.findById((long)3);
 		newItemsToBorrow.add(item1);
 		newItemsToBorrow.add(item2);
-		List<BorrowsItem> borrowe = borrowService.borrowItems(u, newItemsToBorrow);
-		long borrowe_id = borrowe.get(0).getObjet().getId();
-		Borrow bo = borrowRepository.findById(borrowe_id);
-		borrowService.returnBorrowItems(bo.getId());
+		borrowService.borrowItems(u, newItemsToBorrow);
+		List<Borrow> userBorrow = borrowRepository.findAllByUtilisateur(u);
+		long lastBorroweId = userBorrow.get(2).getId();
+		borrowService.returnBorrowItems(u, lastBorroweId);
+		Borrow bo = borrowRepository.findById(lastBorroweId);
 		assertNotEquals(null, bo.getDateRetour());
 	}
 }

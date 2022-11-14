@@ -30,7 +30,7 @@ public class ItemsRepositoryTest {
 	@Test
 	public void findAllOrderByDateTest() {
 		List<Items> objets = itemRepository.findAllOrderByDate();
-		assertEquals("livre3", objets.get(0).getTitre());
+		assertEquals("Kid Krow", objets.get(0).getTitre());
 	}
 
 	@Test
